@@ -383,6 +383,65 @@ void task18() {
 
 
 int main() {
-	task18();
+	int task;
+	std::cin >> task;
+	switch (task) {
+	case 1:
+		task1();
+		break;
+	case 2:
+		task2();
+		break;
+	case 3:
+		task3();
+		break;
+	case 4:
+		task4();
+		break;
+	case 5:
+		task5();
+		break;
+	case 6:
+		task6();
+		break;
+	case 7:
+		task7();
+		break;
+	case 8:
+		task8();
+		break;
+	case 9:
+		task9();
+		break;
+	case 10:
+		task10();
+		break;
+	case 11:
+		task11();
+		break;
+	case 12:
+		task12();
+		break;
+	case 13:
+		task13();
+		break;
+	case 14:
+		task14();
+		break;
+	case 15:
+		task15();
+		break;
+	case 16:
+		task16();
+		break;
+	case 17:
+		task17();
+		break;
+	case 18:
+		task18();
+		break;
+	default:
+		std::cout << "error";
+	}
 	return 0;
 }
