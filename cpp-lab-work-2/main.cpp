@@ -239,9 +239,9 @@ void task13() {
 	int A;
 	std::cout << "A = ";
 	std::cin >> A;
-	int hundreds = A / 100, tens = (A / 10) % 10, ones = A % 10;
 
 	if (A < 100 || A > 999) { std::cout << "error"; return; }
+	int hundreds = A / 100, tens = (A / 10) % 10, ones = A % 10;
 	if (hundreds == 1) std::cout << "one hundred ";
 	else if (hundreds == 2) std::cout << "two hundred ";
 	else if (hundreds == 3) std::cout << "three hundred ";
@@ -272,19 +272,108 @@ void task13() {
 		else if (tens == 7) std::cout << "seventy";
 		else if (tens == 8) std::cout << "eighty";
 		else if (tens == 9) std::cout << "ninety";
+		if (tens > 1 && ones > 0) {
+			std::cout << "-";
+		}
+		if (ones == 1) std::cout << "one";
+		else if (ones == 2) std::cout << "two";
+		else if (ones == 3) std::cout << "three";
+		else if (ones == 4) std::cout << "four";
+		else if (ones == 5) std::cout << "five";
+		else if (ones == 6) std::cout << "six";
+		else if (ones == 7) std::cout << "seven";
+		else if (ones == 8) std::cout << "eight";
+		else if (ones == 9) std::cout << "nine";
 	}
-	if (tens > 1 && ones > 0) {
-		std::cout << "-";
+}
+
+
+void task14() {
+	int A;
+	std::cout << "A = ";
+	std::cin >> A;
+
+	if (A < 1 || A > 999) { std::cout << "error"; return; }
+	if (A < 10) {
+		if (A % 2 == 0) std::cout << "even single-digit number";
+		else std::cout << "odd single-digit number";
 	}
-	if (ones == 1) std::cout << "one";
-	else if (ones == 2) std::cout << "two";
-	else if (ones == 3) std::cout << "three";
-	else if (ones == 4) std::cout << "four";
-	else if (ones == 5) std::cout << "five";
-	else if (ones == 6) std::cout << "six";
-	else if (ones == 7) std::cout << "seven";
-	else if (ones == 8) std::cout << "eight";
-	else if (ones == 9) std::cout << "nine";
+	else if (A < 100) {
+		if (A % 2 == 0) std::cout << "even two-digit number";
+		else std::cout << "odd two-digit number";
+	}
+	else {
+		if (A % 2 == 0) std::cout << "even three-digit number";
+		else std::cout << "odd three-digit number";
+	}
+}
+
+
+void task15() {
+	int x, y;
+	std::cin >> x >> y;
+
+	if (x == 0 && y == 0) { std::cout << 0; }
+	else if (x == 0) { std::cout << "Y"; }
+	else if (y == 0) { std::cout << "X"; }
+	else if (x > 0) {
+		if (y > 0) { std::cout << 1; }
+		else { std::cout << 4; }
+	}
+	else if (x < 0) {
+		if (y > 0) { std::cout << 2; }
+		else { std::cout << 3; }
+	}
+}
+
+
+void task16() {
+	int x1, y1, x2, y2;
+	std::cin >> x1 >> y1 >> x2 >> y2;
+
+	if (x1 < 1 || x1 > 8 || y1 < 1 || y1 > 8 || x2 < 1 || x2 > 8 || y2 < 1 || y2 > 8) {
+		std::cout << "error"; return;
+	}
+	if ((x1 + y1) % 2 == (x2 + y2) % 2) { std::cout << "true"; }
+	else { std::cout << "false"; }
+}
+
+
+void task17() {
+	int month, year;
+	std::cin >> month >> year;
+	
+	if (month < 1 || month > 12) { std::cout << "error"; }
+	bool isLeap = (year % 4 == 0 && year % 100 != 0) || (year % 400 == 0);
+	if (month == 2) {
+		if (isLeap) std::cout << 29;
+		else std::cout << 28;
+	}
+	else if (month == 4 || month == 6 || month == 9 || month == 11) {
+		std::cout << 30;
+	}
+	else { std::cout << 31; }
+}
+
+
+void task18() {
+	int x1, y1, x2, y2;
+	std::cin >> x1 >> y1 >> x2 >> y2;
+
+	if (x1 < 1 || x1 > 8 || y1 < 1 || y1 > 8 || x2 < 1 || x2 > 8 || y2 < 1 || y2 > 8) {
+		std::cout << "error"; return;
+	}
+	int dx = std::abs(x1 - x2), dy = std::abs(y1 - y2);
+	if (dx == 0 || dy == 0) std::cout << "rook: true\n";
+	else std::cout << "rook: false\n";
+	if (dx <= 1 && dy <= 1) std::cout << "king: true\n";
+	else std::cout << "king: false\n";
+	if (dx == dy) std::cout << "bishop: true\n";
+	else std::cout << "bishop: false\n";
+	if (dx == 0 || dy == 0 || dx == dy) std::cout << "queen: true\n";
+	else std::cout << "queen: false\n";
+	if ((dx == 1 && dy == 2) || (dx == 2 && dy == 1)) std::cout << "knight: true\n";
+	else std::cout << "knight: false\n";
 }
 
 
@@ -293,8 +382,7 @@ void task13() {
 
 
 
-
 int main() {
-	task13();
+	task18();
 	return 0;
 }
